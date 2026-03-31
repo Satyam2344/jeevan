@@ -34,6 +34,7 @@ const adminNav = [
   { title: "Game Results", url: "/admin/game-results", icon: Crown },
   { title: "Transactions", url: "/admin/transactions", icon: Wallet },
   { title: "Matches", url: "/admin/matches", icon: Trophy },
+  { title: "Fantasy", url: "/admin/fantasy", icon: Crown },
   { title: "Fraud Detection", url: "/admin/fraud", icon: ShieldAlert },
   { title: "Analytics", url: "/admin/analytics", icon: BarChart3 },
   { title: "Settings", url: "/admin/settings", icon: Settings },
