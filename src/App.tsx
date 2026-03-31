@@ -16,6 +16,7 @@ import BallPoolGame from "./pages/games/BallPoolGame.tsx";
 import RummyGame from "./pages/games/RummyGame.tsx";
 import CricketPredictions from "./pages/games/CricketPredictions.tsx";
 import IPLPredictionGame from "./pages/games/IPLPredictionGame.tsx";
+import FantasyCricketGame from "./pages/games/FantasyCricketGame.tsx";
 import AdminLayout from "./components/admin/AdminLayout.tsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
 import AdminUsers from "./pages/admin/AdminUsers.tsx";
@@ -26,6 +27,7 @@ import AdminFraud from "./pages/admin/AdminFraud.tsx";
 import AdminAnalytics from "./pages/admin/AdminAnalytics.tsx";
 import AdminSettings from "./pages/admin/AdminSettings.tsx";
 import AdminGameResults from "./pages/admin/AdminGameResults.tsx";
+import AdminFantasy from "./pages/admin/AdminFantasy.tsx";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +47,7 @@ const App = () => (
             <Route path="/games/rummy" element={<ProtectedRoute><RummyGame /></ProtectedRoute>} />
             <Route path="/games/cricket-predictions" element={<ProtectedRoute><CricketPredictions /></ProtectedRoute>} />
             <Route path="/games/ipl-prediction" element={<ProtectedRoute><IPLPredictionGame /></ProtectedRoute>} />
+            <Route path="/games/fantasy-cricket" element={<ProtectedRoute><FantasyCricketGame /></ProtectedRoute>} />
             <Route path="/wallet" element={<ProtectedRoute><WalletPage /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
             <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
@@ -56,6 +59,7 @@ const App = () => (
               <Route path="fraud" element={<AdminFraud />} />
               <Route path="analytics" element={<AdminAnalytics />} />
               <Route path="game-results" element={<AdminGameResults />} />
+              <Route path="fantasy" element={<AdminFantasy />} />
               <Route path="settings" element={<AdminSettings />} />
             </Route>
             <Route path="*" element={<NotFound />} />
