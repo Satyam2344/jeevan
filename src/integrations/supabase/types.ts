@@ -213,6 +213,150 @@ export type Database = {
         }
         Relationships: []
       }
+      fantasy_contests: {
+        Row: {
+          created_at: string | null
+          created_by: string | null
+          current_participants: number
+          entry_fee: number
+          id: string
+          match_id: string
+          max_participants: number
+          prize_distribution: Json | null
+          prize_pool: number
+          status: string
+          title: string
+        }
+        Insert: {
+          created_at?: string | null
+          created_by?: string | null
+          current_participants?: number
+          entry_fee?: number
+          id?: string
+          match_id: string
+          max_participants?: number
+          prize_distribution?: Json | null
+          prize_pool?: number
+          status?: string
+          title: string
+        }
+        Update: {
+          created_at?: string | null
+          created_by?: string | null
+          current_participants?: number
+          entry_fee?: number
+          id?: string
+          match_id?: string
+          max_participants?: number
+          prize_distribution?: Json | null
+          prize_pool?: number
+          status?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fantasy_contests_match_id_fkey"
+            columns: ["match_id"]
+            isOneToOne: false
+            referencedRelation: "cricket_matches"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      fantasy_players: {
+        Row: {
+          created_at: string | null
+          credits: number
+          id: string
+          is_playing: boolean
+          match_id: string
+          player_name: string
+          points: number
+          role: string
+          team: string
+        }
+        Insert: {
+          created_at?: string | null
+          credits?: number
+          id?: string
+          is_playing?: boolean
+          match_id: string
+          player_name: string
+          points?: number
+          role?: string
+          team: string
+        }
+        Update: {
+          created_at?: string | null
+          credits?: number
+          id?: string
+          is_playing?: boolean
+          match_id?: string
+          player_name?: string
+          points?: number
+          role?: string
+          team?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fantasy_players_match_id_fkey"
+            columns: ["match_id"]
+            isOneToOne: false
+            referencedRelation: "cricket_matches"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      fantasy_teams: {
+        Row: {
+          captain: string | null
+          contest_id: string
+          created_at: string | null
+          id: string
+          payout: number | null
+          players: Json
+          rank: number | null
+          team_name: string
+          total_points: number
+          user_id: string
+          vice_captain: string | null
+        }
+        Insert: {
+          captain?: string | null
+          contest_id: string
+          created_at?: string | null
+          id?: string
+          payout?: number | null
+          players?: Json
+          rank?: number | null
+          team_name?: string
+          total_points?: number
+          user_id: string
+          vice_captain?: string | null
+        }
+        Update: {
+          captain?: string | null
+          contest_id?: string
+          created_at?: string | null
+          id?: string
+          payout?: number | null
+          players?: Json
+          rank?: number | null
+          team_name?: string
+          total_points?: number
+          user_id?: string
+          vice_captain?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fantasy_teams_contest_id_fkey"
+            columns: ["contest_id"]
+            isOneToOne: false
+            referencedRelation: "fantasy_contests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       fraud_alerts: {
         Row: {
           alert_type: string
