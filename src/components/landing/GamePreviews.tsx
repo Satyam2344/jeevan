@@ -145,10 +145,36 @@ export const IPLPreview = () => {
   );
 };
 
+export const FantasyPreview = () => {
+  const [pts, setPts] = useState(0);
+  useEffect(() => {
+    const i = setInterval(() => setPts(p => p < 350 ? p + Math.floor(Math.random() * 30) + 10 : 0), 900);
+    return () => clearInterval(i);
+  }, []);
+  return (
+    <div className="flex items-center justify-center gap-3 py-3">
+      <div className="text-center">
+        <div className="text-[10px] text-muted-foreground">My Team</div>
+        <motion.div key={pts} initial={{ scale: 1.2 }} animate={{ scale: 1 }} className="font-display font-bold text-lg text-primary">
+          {pts} pts
+        </motion.div>
+      </div>
+      <div className="flex -space-x-1">
+        {["👑","⭐","🏏","🏏","🏏"].map((e, i) => (
+          <motion.div key={i} animate={{ y: [0, -3, 0] }} transition={{ delay: i * 0.15, repeat: Infinity, duration: 1.5 }} className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-[10px]">
+            {e}
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export const previewMap: Record<string, React.FC> = {
   color_trading: ColorTradingPreview,
   ball_pool: BallPoolPreview,
   rummy: RummyPreview,
   motm: CricketPreview,
   ipl_prediction: IPLPreview,
+  fantasy: FantasyPreview,
 };
