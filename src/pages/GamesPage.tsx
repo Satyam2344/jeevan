@@ -4,7 +4,7 @@ import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Spade, Palette, Circle, Trophy, Medal, Zap } from "lucide-react";
+import { Spade, Palette, Circle, Trophy, Medal, Zap, Crown } from "lucide-react";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -21,6 +21,7 @@ const iconMap: Record<string, any> = {
   ball_pool: Circle,
   motm: Trophy,
   ipl_prediction: Medal,
+  fantasy: Crown,
 };
 
 const colorMap: Record<string, string> = {
@@ -29,6 +30,7 @@ const colorMap: Record<string, string> = {
   ball_pool: "text-neon-blue",
   motm: "text-gold",
   ipl_prediction: "text-neon-purple",
+  fantasy: "text-primary",
 };
 
 const borderMap: Record<string, string> = {
@@ -37,6 +39,7 @@ const borderMap: Record<string, string> = {
   ball_pool: "border-neon-blue/30",
   motm: "border-gold/30",
   ipl_prediction: "border-neon-purple/30",
+  fantasy: "border-primary/30",
 };
 
 const glowMap: Record<string, string> = {
@@ -45,6 +48,7 @@ const glowMap: Record<string, string> = {
   ball_pool: "hover:shadow-[0_0_20px_hsl(210_90%_55%/0.3)]",
   motm: "hover:shadow-[0_0_20px_hsl(45_90%_55%/0.3)]",
   ipl_prediction: "hover:shadow-[0_0_20px_hsl(270_70%_60%/0.3)]",
+  fantasy: "hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)]",
 };
 
 const routeMap: Record<string, string> = {
@@ -53,6 +57,7 @@ const routeMap: Record<string, string> = {
   ball_pool: "/games/ball-pool",
   motm: "/games/cricket-predictions",
   ipl_prediction: "/games/ipl-prediction",
+  fantasy: "/games/fantasy-cricket",
 };
 
 const previewMap: Record<string, React.FC> = {
