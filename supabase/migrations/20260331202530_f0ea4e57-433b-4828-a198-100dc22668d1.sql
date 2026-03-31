@@ -1,0 +1,1 @@
+ALTER TABLE public.fantasy_players ADD COLUMN IF NOT EXISTS is_playing boolean NOT NULL DEFAULT false;
